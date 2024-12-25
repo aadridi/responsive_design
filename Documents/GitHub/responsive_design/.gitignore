@@ -1,5 +1,0 @@
-tutorial-env/
-*.pyc
-__pycache__/
-*.log
-*.env
