@@ -23,12 +23,6 @@ li {
 	margin-top: 20px;
 }
 
-img {
-	border: 5px solid blue;
-	border-radius: 35px;
-	width: 100%;
-}
-
 figure {
 	position: relative;
 	display: inline-block;
@@ -37,7 +31,8 @@ figure {
 
 figure img {
 	display: block;
-	border: 5px solid blue;
+	width: 100%;
+	border: 5px solid teal;
 	border-radius: 35px;
 	box-sizing: border-box;
 }
@@ -75,8 +70,11 @@ figcaption {
 	}
 
 	figure {
-		overflow: hidden;
 		box-sizing: border-box;
+	}
+
+	figure:last-child {
+		grid-column: span 2;
 	}
 
 	figure img {
@@ -88,8 +86,70 @@ figcaption {
 	}
 
 	figcaption {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0%;
+		border-bottom-right-radius: 0%;
+		font-size: 0.8rem;
+		position: relative;
+		width: 35%;
+		justify-self: center;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	figure:nth-child(3n) {
+		grid-column: span 2;
+	}
+
+	figure img {
+		border-radius: 0%;
+		border: 0;
+		width: 100%;
+		object-fit: cover;
+		border: 5px solid teal;
+	}
+
+	figcaption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		color: white;
+		padding: 10px;
+		text-align: center;
+		box-sizing: border-box;
+		padding-left: calc(5px + 10px);
+		padding-right: calc(5px + 10px);
 		font-size: 1rem;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	html {
+	}
+}
+
+@media (prefers-reduced-motion) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	figcaption {
+		background-color: #dedede;
+		color: black;
+		border: 5px solid teal;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	figcaption {
+		background-color: black;
+		color: white;
 	}
 }
